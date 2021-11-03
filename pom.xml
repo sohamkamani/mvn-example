@@ -24,6 +24,14 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!-- We can add additional dependencies here -->
+    <dependency>
+      <groupId>com.github.ricksbrown</groupId>
+      <artifactId>cowsay</artifactId>
+      <version>1.1.0</version>
+      <!-- The "lib" classifier is optional, but it gives you a MUCH smaller jar which is all you need as a Java library -->
+      <classifier>lib</classifier>
+    </dependency>
   </dependencies>
 
   <build>
@@ -40,6 +48,19 @@
               <mainClass>com.sohamkamani.App</mainClass>
             </manifest>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.sohamkamani.App</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
         </configuration>
       </plugin>
     </plugins>
