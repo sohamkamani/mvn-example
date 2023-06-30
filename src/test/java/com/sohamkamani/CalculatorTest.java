@@ -10,4 +10,9 @@ public class CalculatorTest {
     public void ShouldAdd() {
         assertEquals(2, Calculator.add(1, 1));
     }
+
+    @Test
+    public void ShouldAddNegativeValues() {
+        assertEquals(-2, Calculator.add(-1, -1));
+    }
 }
